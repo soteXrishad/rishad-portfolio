@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rishad | Freelancer Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#1e90ff;
+  --black:#0b0b0b;
+  --white:#ffffff;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+body{
+  background:#fff;
+  color:#000;
+  line-height:1.7;
+}
+section{
+  padding:80px 10%;
+}
+.fade{
+  animation:fadeUp 1.2s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Floating icons */
+.icon-fly i{
+  position:absolute;
+  color:var(--blue);
+  opacity:.15;
+  animation:float 12s infinite linear;
+}
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-100vh);}
+}
+
+/* About */
+.about-box{
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+.profile-frame{
+  width:320px;
+  height:180px;
+  border:3px solid var(--blue);
+  border-radius:12px;
+  overflow:hidden;
+}
+.profile-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Services */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.service{
+  padding:25px;
+  border-radius:12px;
+  background:#f8fbff;
+}
+
+/* Form */
+form{
+  max-width:650px;
+  margin:auto;
+  background:#f9f9f9;
+  padding:35px;
+  border-radius:15px;
+}
+input,select,textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  background:var(--blue);
+  color:#fff;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="icon-fly">
+<i class="fa-solid fa-code" style="left:10%"></i>
+<i class="fa-solid fa-rocket" style="left:70%"></i>
+</div>
+
+<section class="fade">
+<h1>About Me</h1>
+<div class="about-box">
+<div class="profile-frame">
+<img src="your-image.jpg" alt="Rishad">
+</div>
+<div>
+<p>
+My name is <b>Robiul Islam Rishad</b>. I am a professional freelancer with over
+<b>5 years of experience</b>, completed <b>300+ projects</b> for <b>100+ clients</b>
+worldwide. I focus on quality, trust, and long-term value.
+</p>
+</div>
+</div>
+</section>
+
+<section class="fade">
+<h2>My Services</h2>
+<div class="services">
+<div class="service"><i class="fa-solid fa-globe"></i> Website Creation</div>
+<div class="service"><i class="fa-brands fa-youtube"></i> YouTube SEO</div>
+<div class="service"><i class="fa-brands fa-facebook"></i> Facebook Ads</div>
+<div class="service"><i class="fa-brands fa-google"></i> Google Ads</div>
+<div class="service"><i class="fa-solid fa-database"></i> Data Entry</div>
+</div>
+</section>
+
+<section class="fade">
+<h2>Client Requirement Form</h2>
+
+<form action="https://formspree.io/f/meelekyd" method="POST">
+
+<input type="text" name="Client Name" placeholder="Client Name" required>
+<input type="text" name="Address" placeholder="Address">
+<input type="text" name="Location" placeholder="Location">
+
+<select name="Service" id="serviceSelect" required>
+<option value="">Select Service</option>
+<option value="Website Creation">Website Creation</option>
+<option value="YouTube SEO">YouTube SEO</option>
+<option value="Facebook Ads">Facebook Ads</option>
+<option value="Google Ads">Google Ads</option>
+<option value="Data Entry">Data Entry</option>
+</select>
+
+<div id="webBox" class="hidden">
+<textarea name="Website Type Details" placeholder="What type of website do you need? (Business, Blog, E-commerce etc.)"></textarea>
+</div>
+
+<input type="hidden" name="_subject" value="New Client Requirement">
+
+<button type="submit">Submit Requirement</button>
+</form>
+</section>
+
+<script>
+const serviceSelect=document.getElementById("serviceSelect");
+const webBox=document.getElementById("webBox");
+
+serviceSelect.addEventListener("change",()=>{
+  if(serviceSelect.value==="Website Creation"){
+    webBox.classList.remove("hidden");
+  }else{
+    webBox.classList.add("hidden");
+  }
+});
+</script>
+
+</body>
+</html>
